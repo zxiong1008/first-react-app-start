@@ -1,6 +1,13 @@
 import { useState } from "react";
 import "./styles.css";
 
+const title = [
+  ["Why React?"],
+  ["Core Features"],
+  ["How Popular is React"],
+  ["Related Resources"],
+];
+
 const content = [
   [
     "React is extremely popular",
@@ -15,15 +22,14 @@ const content = [
     "Dynamic rendering",
   ],
   [
+    "Used by Netflix, Facebook, Instagram, Uber, and Airbnb to build their apps",
+    "Popular among developers globally. 45% of hiring employers are looking for React developers",
+    "Framework for modern UI design",
+  ],
+  [
     "Official web page (react.dev)",
     "Next.js (Fullstack framework)",
     "React Native (build native mobile apps with React)",
-  ],
-  [
-    "Vanilla JavaScript requires imperative programming",
-    "Imperative Programming: You define all the steps needed to achieve a result",
-    "React on the other hand embraces declarative programming",
-    "With React, you define the goal and React figures out how to get there",
   ],
 ];
 
@@ -42,24 +48,15 @@ export default function App() {
 
       <div id="tabs">
         <menu>
-          <button
-            className={activeContentIndex === 0 ? "active" : ""}
-            onClick={() => setActiveContentIndex(0)}
-          >
-            Why React?
-          </button>
-          <button
-            className={activeContentIndex === 1 ? "active" : ""}
-            onClick={() => setActiveContentIndex(1)}
-          >
-            Core Features
-          </button>
-          <button
-            className={activeContentIndex === 2 ? "active" : ""}
-            onClick={() => setActiveContentIndex(2)}
-          >
-            Related Resources
-          </button>
+          {title.map((item, i) => (
+            <button
+              key={i}
+              className={activeContentIndex === i ? "active" : ""}
+              onClick={() => setActiveContentIndex(i)}
+            >
+              {item}
+            </button>
+          ))}
         </menu>
         <div id="tab-content">
           <ul>
