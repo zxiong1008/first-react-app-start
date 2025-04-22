@@ -9,6 +9,7 @@ const title = [
   ["Related Resources"],
 ];
 
+
 const content = [
   [
     "React is extremely popular",
